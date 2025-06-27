@@ -90,6 +90,47 @@ Créez une base de données PostgreSQL :
 CREATE DATABASE candidate_manager;
 ```
 
+#### 1.1. Installation et Configuration de pgAdmin4
+
+**Installation de pgAdmin4 :**
+
+1. **Téléchargement :**
+   - Allez sur [https://www.pgadmin.org/download/pgadmin-4-windows/](https://www.pgadmin.org/download/pgadmin-4-windows/)
+   - Téléchargez la version "pgAdmin 4 v8.x" pour Windows
+   - Installez pgAdmin4 en suivant l'assistant d'installation
+
+2. **Première configuration :**
+   - Lancez pgAdmin4
+   - Créez un mot de passe maître pour pgAdmin4
+   - Ajoutez votre serveur PostgreSQL :
+     - **Nom** : `Local PostgreSQL` (ou nom de votre choix)
+     - **Hôte** : `localhost`
+     - **Port** : `5432`
+     - **Nom d'utilisateur** : `postgres` (ou votre utilisateur)
+     - **Mot de passe** : votre mot de passe PostgreSQL
+
+3. **Création de la base de données :**
+   - Clic droit sur "Databases" → "Create" → "Database"
+   - **Nom** : `candidate_manager`
+   - **Owner** : `postgres` (ou votre utilisateur)
+   - Cliquez sur "Save"
+
+4. **Vérification de la connexion :**
+   - Testez la connexion dans pgAdmin4
+   - Vérifiez que la base `candidate_manager` apparaît dans la liste
+
+**Configuration du fichier .env du backend :**
+
+```bash
+# Dans backend/.env
+DATABASE_URL="postgresql://postgres:votre_mot_de_passe@localhost:5432/candidate_manager"
+```
+
+**Dépannage pgAdmin4 :**
+- Si pgAdmin4 ne se connecte pas, vérifiez que PostgreSQL est démarré
+- Vérifiez que le port 5432 n'est pas bloqué par un firewall
+- Assurez-vous que l'utilisateur PostgreSQL a les droits suffisants
+
 #### 2. Configuration du Backend
 
 ```bash
