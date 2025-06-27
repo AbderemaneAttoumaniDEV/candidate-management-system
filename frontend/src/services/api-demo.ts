@@ -5,7 +5,9 @@ import {
   UpdateCandidateData,
   CreateDocumentData, 
   UpdateDocumentStatusData,
-  ApiResponse 
+  ApiResponse,
+  DocumentType,
+  DocumentStatus
 } from '@/types';
 
 // Données de démonstration pour GitHub Pages
@@ -34,8 +36,8 @@ const demoDocuments: Document[] = [
   {
     id: 1,
     candidateId: 1,
-    type: "CNI",
-    status: "Validé",
+    type: DocumentType.CNI,
+    status: DocumentStatus.VALIDE,
     fileName: "cni_jean.pdf",
     filePath: "/documents/cni_jean.pdf",
     createdAt: "2024-01-15T10:30:00Z",
@@ -44,8 +46,8 @@ const demoDocuments: Document[] = [
   {
     id: 2,
     candidateId: 1,
-    type: "Titre de séjour",
-    status: "En cours",
+    type: DocumentType.TITRE_SEJOUR,
+    status: DocumentStatus.EN_COURS,
     fileName: "titre_jean.pdf",
     filePath: "/documents/titre_jean.pdf",
     createdAt: "2024-01-16T09:15:00Z",
