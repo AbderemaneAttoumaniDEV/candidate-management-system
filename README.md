@@ -43,60 +43,9 @@ Un système complet de gestion de candidats avec gestion de documents, développ
 - **Class Validator** - Validation des données côté serveur
 - **Swagger** - Documentation API automatique
 
-## 📁 Structure du Projet
-
-```
-candidate_manager/
-├── frontend/                 # Application Next.js
-│   ├── src/
-│   │   ├── components/       # Composants React réutilisables
-│   │   │   ├── CandidateForm.tsx
-│   │   │   ├── CandidateList.tsx
-│   │   │   ├── DocumentManager.tsx
-│   │   │   └── Alert.tsx
-│   │   ├── services/         # Services API
-│   │   │   └── api.ts
-│   │   ├── types/           # Types TypeScript
-│   │   │   └── index.ts
-│   │   └── app/             # Pages Next.js
-│   │       ├── page.tsx
-│   │       └── layout.tsx
-│   ├── package.json
-│   ├── tailwind.config.js
-│   └── Dockerfile
-├── backend/                  # API NestJS
-│   ├── src/
-│   │   ├── candidates/       # Module candidats
-│   │   │   ├── candidates.controller.ts
-│   │   │   ├── candidates.service.ts
-│   │   │   └── candidates.module.ts
-│   │   ├── documents/        # Module documents
-│   │   │   ├── documents.controller.ts
-│   │   │   ├── documents.service.ts
-│   │   │   └── documents.module.ts
-│   │   ├── prisma/          # Service Prisma
-│   │   │   └── prisma.service.ts
-│   │   ├── dto/             # Data Transfer Objects
-│   │   │   ├── create-candidate.dto.ts
-│   │   │   ├── create-document.dto.ts
-│   │   │   └── update-document.dto.ts
-│   │   └── main.ts          # Point d'entrée
-│   ├── prisma/              # Configuration Prisma
-│   │   ├── schema.prisma
-│   │   └── migrations/
-│   ├── package.json
-│   ├── jest.config.js
-│   └── Dockerfile
-├── docker-compose.yml       # Configuration Docker
-├── start.sh                 # Script de démarrage Linux/Mac
-├── start.bat               # Script de démarrage Windows
-├── .dockerignore           # Fichiers ignorés par Docker
-└── README.md               # Documentation
-```
-
 ## 🚀 Installation et Démarrage
 
-### Option 1 : Démarrage Rapide avec Docker (Recommandé)
+### Option 1 : Démarrage Rapide avec Docker
 
 #### Prérequis
 - Docker et Docker Compose installés
@@ -311,19 +260,4 @@ docker system prune -a
 ## 📄 Licence
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
-## 👨‍💻 Auteur
-
-Développé dans le cadre d'un test technique pour un stage en développement web.
-
-## 🙏 Remerciements
-
-- [NestJS](https://nestjs.com/) pour le framework backend
-- [Next.js](https://nextjs.org/) pour le framework frontend
-- [Prisma](https://www.prisma.io/) pour l'ORM
-- [Tailwind CSS](https://tailwindcss.com/) pour le styling
-- [React Hot Toast](https://react-hot-toast.com/) pour les notifications
-
----
-
-**Note** : Ce projet est fonctionnel et prêt pour la production. Toutes les fonctionnalités demandées ont été implémentées avec une attention particulière portée à la qualité du code, à l'expérience utilisateur et à la maintenabilité. Le système est entièrement documenté et peut être déployé facilement avec Docker. 
+Développé dans le cadre d'un test technique pour une alternance en développement web.
