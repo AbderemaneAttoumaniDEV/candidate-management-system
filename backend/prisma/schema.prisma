@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modèle pour représenter un candidat
+model Candidate {
+  id        Int      @id @default(autoincrement())
+  firstName String   // Prénom du candidat
+  lastName  String   // Nom de famille du candidat
+  birthDate DateTime // Date de naissance du candidat
+  createdAt DateTime @default(now()) // Date de création de l'enregistrement
+  updatedAt DateTime @updatedAt // Date de dernière modification
+
+  // Relation avec les documents (un candidat peut avoir plusieurs documents)
+  documents Document[]
+
+  @@map("candidates") // Nom de la table en base de données
+}
+
+// Modèle pour représenter un document
+model Document {
+  id          Int           @id @default(autoincrement())
+  type        DocumentType  // Type de document (CNI, TITRE_SEJOUR, RIB, etc.)
+  status      DocumentStatus @default(EN_COURS) // Statut de validation du document
+  fileName    String        // Nom du fichier uploadé
+  filePath    String        // Chemin vers le fichier sur le serveur
+  createdAt   DateTime      @default(now()) // Date de création du document
+  updatedAt   DateTime      @updatedAt // Date de dernière modification
+
+  // Relation avec le candidat (un document appartient à un candidat)
+  candidateId Int
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@map("documents") // Nom de la table en base de données
+}
+
+// Enum pour les types de documents possibles
+enum DocumentType {
+  CNI              // Carte Nationale d'Identité
+  TITRE_SEJOUR     // Titre de séjour
+  RIB              // Relevé d'Identité Bancaire
+  JUSTIFICATIF_DOMICILE // Justificatif de domicile
+  CARTE_VITALE     // Carte Vitale
+}
+
+// Enum pour les statuts de validation des documents
+enum DocumentStatus {
+  EN_COURS // Document en cours de validation
+  VALIDE   // Document validé
+  REFUSE   // Document refusé
+} 
