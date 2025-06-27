@@ -14,11 +14,7 @@ const demoCandidates: Candidate[] = [
     id: 1,
     firstName: "Jean",
     lastName: "Dupont",
-    email: "jean.dupont@email.com",
-    phone: "0123456789",
-    address: "123 Rue de la Paix, Paris",
-    dateOfBirth: "1990-05-15",
-    nationality: "Française",
+    birthDate: "1990-05-15",
     createdAt: "2024-01-15T10:30:00Z",
     updatedAt: "2024-01-15T10:30:00Z",
     documents: []
@@ -27,11 +23,7 @@ const demoCandidates: Candidate[] = [
     id: 2,
     firstName: "Marie",
     lastName: "Martin",
-    email: "marie.martin@email.com",
-    phone: "0987654321",
-    address: "456 Avenue des Champs, Lyon",
-    dateOfBirth: "1985-08-22",
-    nationality: "Française",
+    birthDate: "1985-08-22",
     createdAt: "2024-01-10T14:20:00Z",
     updatedAt: "2024-01-10T14:20:00Z",
     documents: []
@@ -44,9 +36,8 @@ const demoDocuments: Document[] = [
     candidateId: 1,
     type: "CNI",
     status: "Validé",
+    fileName: "cni_jean.pdf",
     filePath: "/documents/cni_jean.pdf",
-    uploadDate: "2024-01-15T10:30:00Z",
-    expiryDate: "2034-01-15T10:30:00Z",
     createdAt: "2024-01-15T10:30:00Z",
     updatedAt: "2024-01-15T10:30:00Z"
   },
@@ -55,9 +46,8 @@ const demoDocuments: Document[] = [
     candidateId: 1,
     type: "Titre de séjour",
     status: "En cours",
+    fileName: "titre_jean.pdf",
     filePath: "/documents/titre_jean.pdf",
-    uploadDate: "2024-01-16T09:15:00Z",
-    expiryDate: "2025-01-16T09:15:00Z",
     createdAt: "2024-01-16T09:15:00Z",
     updatedAt: "2024-01-16T09:15:00Z"
   }
