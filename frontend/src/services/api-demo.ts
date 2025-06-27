@@ -65,14 +65,12 @@ export const demoApiService = {
 
   async getCandidates(): Promise<ApiResponse<Candidate>[]> {
     await delay(500); // Simulation délai réseau
-    return {
-      success: true,
-      data: demoCandidates.map(candidate => ({
+    return demoCandidates.map(candidate => ({
+      candidate: {
         ...candidate,
         documents: demoDocuments.filter(doc => doc.candidateId === candidate.id)
-      })),
-      message: "Candidats récupérés avec succès (Mode Démo)"
-    };
+      }
+    }));
   },
 
   async getCandidate(id: number): Promise<ApiResponse<Candidate>> {
@@ -82,12 +80,10 @@ export const demoApiService = {
       throw new Error("Candidat non trouvé");
     }
     return {
-      success: true,
-      data: {
+      candidate: {
         ...candidate,
         documents: demoDocuments.filter(doc => doc.candidateId === id)
-      },
-      message: "Candidat récupéré avec succès (Mode Démo)"
+      }
     };
   },
 
@@ -102,9 +98,7 @@ export const demoApiService = {
     };
     demoCandidates.push(newCandidate);
     return {
-      success: true,
-      data: newCandidate,
-      message: "Candidat créé avec succès (Mode Démo)"
+      candidate: newCandidate
     };
   },
 
@@ -120,9 +114,7 @@ export const demoApiService = {
       updatedAt: new Date().toISOString()
     };
     return {
-      success: true,
-      data: demoCandidates[index],
-      message: "Candidat mis à jour avec succès (Mode Démo)"
+      candidate: demoCandidates[index]
     };
   },
 
@@ -161,15 +153,12 @@ export const demoApiService = {
       id: Math.max(...demoDocuments.map(d => d.id)) + 1,
       candidateId,
       ...data,
-      uploadDate: new Date().toISOString(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
     demoDocuments.push(newDocument);
     return {
-      success: true,
-      data: newDocument,
-      message: "Document ajouté avec succès (Mode Démo)"
+      document: newDocument
     };
   },
 
