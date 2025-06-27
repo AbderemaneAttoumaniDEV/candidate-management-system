@@ -153,6 +153,7 @@ export const demoApiService = {
       id: Math.max(...demoDocuments.map(d => d.id)) + 1,
       candidateId,
       ...data,
+      status: DocumentStatus.EN_COURS,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
