@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next build && next export",
-    "build:static": "NODE_ENV=production next build"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "14.0.0",
